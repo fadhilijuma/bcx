@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<channel-adaptor name='jpos-client-adaptor'
+    class="org.jpos.q2.iso.ChannelAdaptor" logger="Q2">
+ <channel class="org.jpos.iso.channel.NACChannel" logger="Q2"
+          packager="org.jpos.iso.packager.GenericPackager" header="">
+		  <property name="packager-config"
+value="genericpackager.xml" />
+ <!-- Test IP-->
+ <!-- <property name="host" value="172.25.29.10"/> -->
+  
+  <!--Production IP -->
+  <property name="host" value="10.1.1.10"/>
+  <property name="port" value="8082"/>
+  
+<!--  <property name="host" value="127.0.0.1" />
+  <property name="port" value="9039" />-->
+  
+  
+  
+ </channel>
+ <in>jpos-client-send</in>
+ <out>jpos-client-receive</out>
+ <reconnect-delay>10000</reconnect-delay>
+</channel-adaptor>
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<mux class="org.jpos.q2.iso.QMUX" logger="Q2" name="jpos-client-mux">
+ <in>jpos-client-receive</in>
+ <out>jpos-client-send</out>
+ <unhandled>jpos-client-unhandled</unhandled>
+ <key>7, 11</key> 
+ <request-listener class="channel.ServerRequestListener" logger="Q2">
+ </request-listener>
+</mux>
+

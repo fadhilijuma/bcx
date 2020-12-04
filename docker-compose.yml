@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  emqx:
+    image: emqx/emqx:latest
+    hostname: emqx
+    container_name: emqx
+    restart: 'always'
+    ports:
+      - "18083:18083"
+      - "1883:1883"
+      - "1894:8080"
+    environment:
+      EMQX_LOADED_PLUGINS: 'emqx_recon,emqx_retainer,emqx_management,emqx_dashboard'
+      EMQX_LISTENER__TCP__EXTERNAL: '1883'
+
+  envoy_proxy:
+    image: lightspace001/uchumi_envoy:v8
+    hostname: envoy
+    container_name: envoy
+    restart: 'always'
+    ports:
+      - "8001:8001"
+      - "1893:1893"
+      - "10000:10000"
